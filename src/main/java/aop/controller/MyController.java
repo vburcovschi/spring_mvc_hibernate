@@ -2,6 +2,7 @@ package aop.controller;
 
 import aop.dao.EmployeeDAO;
 import aop.entity.Employee;
+import aop.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -14,12 +15,12 @@ import java.util.List;
 public class MyController {
 
     @Autowired
-    private EmployeeDAO employeeDAO;
+    private EmployeeService employeeService;
 
     @RequestMapping("/")
     public String showEmployee(Model model){
 
-        List<Employee> allEmployee = employeeDAO.getAllEmployee();
+        List<Employee> allEmployee = employeeService.getAllEmployee();
         model.addAttribute("allEmpls",allEmployee);
         return "all-employees";
     }
