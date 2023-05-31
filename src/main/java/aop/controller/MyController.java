@@ -45,7 +45,7 @@ public class MyController {
         return "employee-info";
     }
 
-    @RequestMapping("/deleteInfo")
+    @RequestMapping("/deleteEmployee")
     public String deleteEmployee(@RequestParam("empId") int id){
         employeeService.removeEmployee(id);
         return "redirect:/";
